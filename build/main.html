@@ -4,42 +4,85 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>108 Kutiya - Explore</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    h2 {
-      font-family: 'Cinzel Decorative', cursive;
-      font-size: clamp(1rem, 2.5vw, 1.55rem);
-      background: linear-gradient(130deg, var(--bright-gold) 0%, var(--saffron) 50%, var(--bright-gold) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      letter-spacing: 1.5px;
-    }  
-  </style>
+  <link rel="stylesheet" href="./style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
 </head>
 <body>
+  <!-- ========== BACKGROUND ========== -->
+<div class="bg-base" aria-hidden="true"></div>
+
+  <!-- Rotating Mandala SVG -->
+<div class="mandala-wrap" aria-hidden="true">
+<svg viewBox="0 0 900 900" xmlns="http://www.w3.org/2000/svg" stroke="#FFB347" fill="none" stroke-width="0.6">
+  <g transform="translate(450,450)">
+    <circle r="80"/><circle r="120"/><circle r="160"/><circle r="200"/>
+    <circle r="240"/><circle r="290"/><circle r="340"/><circle r="400"/>
+    <g id="petal">
+      <ellipse rx="28" ry="75" transform="translate(0,-120)"/>
+      <ellipse rx="18" ry="55" transform="translate(0,-195)"/>
+      <ellipse rx="12" ry="38" transform="translate(0,-255)"/>
+      <circle cx="0" cy="-300" r="5"/>
+    </g>
+    <use href="#petal" transform="rotate(30)"/><use href="#petal" transform="rotate(60)"/>
+    <use href="#petal" transform="rotate(90)"/><use href="#petal" transform="rotate(120)"/>
+    <use href="#petal" transform="rotate(150)"/><use href="#petal" transform="rotate(180)"/>
+    <use href="#petal" transform="rotate(210)"/><use href="#petal" transform="rotate(240)"/>
+    <use href="#petal" transform="rotate(270)"/><use href="#petal" transform="rotate(300)"/>
+    <use href="#petal" transform="rotate(330)"/>
+    <line x1="0" y1="-400" x2="0" y2="400"/>
+    <line x1="-400" y1="0" x2="400" y2="0"/>
+    <line x1="-283" y1="-283" x2="283" y2="283"/>
+    <line x1="283" y1="-283" x2="-283" y2="283"/>
+    <line x1="-212" y1="-354" x2="212" y2="354"/>
+    <line x1="212" y1="-354" x2="-212" y2="354"/>
+  </g>
+</svg>
+</div>
+
+<!-- Radha-Krishna Silhouette -->
+<svg class="rk-wrap" viewBox="0 0 420 560" xmlns="http://www.w3.org/2000/svg"
+     fill="rgba(255,140,50,0.95)" aria-hidden="true">
+  <!-- Krishna -->
+  <ellipse cx="145" cy="495" rx="52" ry="16" opacity="0.4"/>
+  <rect x="115" y="305" width="62" height="190" rx="31"/>
+  <ellipse cx="146" cy="292" rx="36" ry="42"/>
+  <!-- Crown feathers -->
+  <path d="M136,255 Q146,212 156,250 Q164,200 160,252 Q172,196 166,252"
+        stroke="rgba(255,215,0,0.95)" stroke-width="2.5" fill="none"/>
+  <circle cx="146" cy="210" r="5" fill="rgba(255,215,0,0.7)"/>
+  <!-- Flute -->
+  <rect x="158" y="318" width="72" height="5" rx="2.5" transform="rotate(-14,158,318)"/>
+  <!-- Radha -->
+  <ellipse cx="270" cy="495" rx="46" ry="15" opacity="0.4"/>
+  <rect x="240" y="328" width="58" height="167" rx="29"/>
+  <ellipse cx="269" cy="315" rx="31" ry="36"/>
+  <!-- Radha veil/dupatta -->
+  <path d="M238,300 Q269,270 304,302 Q285,285 269,290 Z"/>
+  <!-- Yamuna at base -->
+  <path d="M40,530 Q100,510 160,530 Q220,550 280,530 Q340,510 390,530"
+        stroke="rgba(80,180,255,0.35)" stroke-width="3" fill="none"/>
+  <path d="M40,545 Q100,525 160,545 Q220,565 280,545 Q340,525 390,545"
+        stroke="rgba(80,180,255,0.22)" stroke-width="2" fill="none"/>
+</svg>
+
+<!-- Particle canvas -->
+<canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+<!-- Floating diyas -->
+<div class="diya" style="left:4%;bottom:22%;animation-duration:5.5s;animation-delay:0s">🪔</div>
+<div class="diya" style="left:92%;bottom:28%;animation-duration:7s;animation-delay:1.5s">🪔</div>
+<div class="diya" style="left:8%;bottom:65%;animation-duration:6.5s;animation-delay:0.8s">🪔</div>
+<div class="diya" style="left:88%;bottom:72%;animation-duration:8s;animation-delay:2.5s">🪔</div>
+<div class="diya" style="left:50%;bottom:12%;animation-duration:6s;animation-delay:3s">🪔</div>
+
+
   <!-- Heading -->
    <header>
   <div class="header-top">
     <div class="logo-orb" aria-hidden="true">🪷</div>
     <h1 class="site-title">108 Kutiya</h1>
-  </div>
-  <nav aria-label="Main navigation">
-    <a href="#about">About 108 Kutiya</a>
-    <a href="#gurudev">Our Shri Gurudev</a>
-    <a href="#presidents">108 Kutiya Presidents</a>
-    <a href="#testimonials">Testimonials</a>
-    <a href="#satsangs">108 Kutiya Satsangs</a>
-    <a href="#knowledge">108 Kutiya Knowledge</a>
-    <a href="#mandirs">108 Kutiya Mandirs</a>
-    <a href="#philanthropy">108 Kutiya Philanthropy</a>
-    <a href="#activities">108 Kutiya Activities</a>
-    <a href="#podcasts">108 Kutiya Podcasts</a>
-    <a href="#books">108 Kutiya Books</a>
-    <a href="#apps">108 Kutiya Apps</a>
-    <a href="#donate">Donate</a>
-    <a href="#contact">Contact Us</a>
-  </nav>
 </header>
   <!-- Divider -->
 <div class="divider" aria-hidden="true">
@@ -145,10 +188,15 @@
     </a>
 
   </div>
+
 </section>
+
+
+
 
 <!-- ========== FOOTER ========== -->
 <footer>
+  
   <span class="om" aria-hidden="true">ॐ</span>
   Jai Shri Radhe Shyam &nbsp;|&nbsp; Karun das ji maharaj
   <span class="om" aria-hidden="true">🪷</span>
